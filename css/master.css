@@ -1,0 +1,394 @@
+/* Add keyframes for animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.container {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('../images/Background_image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    width: 95%;
+    max-width: 1400px;
+    margin: 20px auto;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.8s ease-out;
+    transition: all 0.3s ease;
+    overflow-y: visible;
+    min-height: calc(100vh - 40px);
+}
+
+.container:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+#mainView {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('../images/Background_image.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.title {
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    animation: slideIn 0.8s ease-out;
+}
+
+.dropdown {
+    width: 80%;
+    max-width: 300px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    animation: fadeIn 1s ease-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.dropdown option {
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.dropdown:hover, .dropdown:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    outline: none;
+    transform: translateY(-3px);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Add styles for the dropdown when it's open */
+.dropdown:focus {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Style the dropdown arrow */
+.dropdown::-ms-expand {
+    display: none;
+}
+
+.dropdown::after {
+    content: "▼";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    pointer-events: none;
+}
+
+.weather-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('../images/Background_image.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.weather-card {
+    min-width: auto;
+    max-width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    text-align: center;
+    color: #ffffff;
+    transition: all 0.4s ease;
+    animation: fadeIn 0.5s ease-out;
+    animation-fill-mode: both;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+}
+
+.weather-card:nth-child(1) { animation-delay: 0.1s; }
+.weather-card:nth-child(2) { animation-delay: 0.2s; }
+.weather-card:nth-child(3) { animation-delay: 0.3s; }
+.weather-card:nth-child(4) { animation-delay: 0.4s; }
+.weather-card:nth-child(5) { animation-delay: 0.5s; }
+.weather-card:nth-child(6) { animation-delay: 0.6s; }
+.weather-card:nth-child(7) { animation-delay: 0.7s; }
+
+.weather-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    animation: glow 2s infinite;
+}
+
+.weather-icon {
+    width: 35px;
+    height: 35px;
+    margin: 6px auto;
+    transition: all 0.3s ease;
+}
+
+.weather-card:hover .weather-icon {
+    transform: scale(1.2) rotate(5deg);
+    animation: pulse 2s infinite;
+}
+
+.weather-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.weather-card h4 {
+    font-size: 1em;
+    margin: 6px 0;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.weather-card:hover h4 {
+    color: #2b6cb0;
+}
+
+.weather-desc {
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    margin: 8px 0;
+    line-height: 1.3;
+}
+
+.weather-card p {
+    margin: 6px 0;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    line-height: 1.3;
+}
+
+.weather-card strong {
+    color: #2b6cb0;
+    font-weight: 600;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.4s ease;
+    animation: fadeIn 0.8s ease-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    animation: glow 2s infinite;
+}
+
+.back-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.3);
+}
+
+/* Loading message styling */
+#weatherContainer > p {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin: 25px 0;
+    font-weight: 500;
+    animation: pulse 2s infinite;
+}
+
+/* Error message styling */
+#weatherContainer > p[style*="color: red"] {
+    color: #e53e3e !important;
+    font-weight: 500;
+    background: rgba(229, 62, 62, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(229, 62, 62, 0.2);
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Update media queries for better responsiveness */
+@media (max-width: 1200px) {
+    .weather-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 15px;
+        margin: 10px auto;
+    }
+    
+    .title {
+        font-size: 1.8em;
+    }
+    
+    .dropdown {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 10px;
+        margin: 5px auto;
+        width: 98%;
+    }
+    
+    .weather-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .title {
+        font-size: 1.5em;
+    }
+    
+    .dropdown {
+        width: 95%;
+        padding: 10px 15px;
+    }
+    
+    .weather-card {
+        min-height: 180px;
+        padding: 12px;
+    }
+    
+    .info-section {
+        padding: 10px;
+    }
+    
+    .info-section p {
+        font-size: 0.9em;
+    }
+}
+
+.info-section {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 800px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.info-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+}
+
+.info-section p {
+    margin: 10px 0;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    color: #ffffff;
+    font-size: 0.9em;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.footer p {
+    margin: 5px 0;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+  

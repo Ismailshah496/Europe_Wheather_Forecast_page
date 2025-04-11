@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Europe Weather Forecast</title>
+  <link rel="stylesheet" href="css/master.css" />
+</head>
+<body>
+  <div class="container">
+    <div id="mainView">
+      <h1 class="title">Europe Weather Forecast</h1>
+      
+      <div class="info-section">
+        <p>Welcome to Europe Weather Forecast! This application provides accurate 7-day weather forecasts for major European cities. 
+           Select a city from the dropdown menu below to view detailed weather information including temperature, 
+           precipitation, and wind conditions.</p>
+        <p>Our forecasts are updated regularly using reliable weather data sources to ensure you get the most accurate information 
+           for your travel planning or daily activities.</p>
+      </div>
+
+      <select id="citySelect" class="dropdown">
+        <option value="">-- Select a City --</option>
+        <option value="51.507,-0.127">London</option>
+        <option value="48.856,2.352">Paris</option>
+        <option value="41.902,12.496">Rome</option>
+        <option value="52.520,13.405">Berlin</option>
+        <option value="40.416,-3.703">Madrid</option>
+        <option value="52.367,4.904">Amsterdam</option>
+        <option value="59.329,18.068">Stockholm</option>
+        <option value="55.676,12.568">Copenhagen</option>
+        <option value="48.135,11.582">Munich</option>
+        <option value="45.464,9.190">Milan</option>
+        <option value="50.075,14.437">Prague</option>
+        <option value="37.983,23.727">Athens</option>
+        <option value="48.856,2.352">Vienna</option>
+        <option value="50.847,4.357">Brussels</option>
+        <option value="59.913,10.752">Oslo</option>
+      </select>
+    </div>
+      
+    <div id="weatherContainer" class="weather-container"></div>
+      
+    <button id="backButton" class="back-button" style="display: none;">← Back to City Selection</button>
+
+    <footer class="footer">
+      <p>&copy; 2024 Europe Weather Forecast. All Rights Reserved.</p>
+      <p>Developed by M Ismail Shah</p>
+      <p>Weather data provided by 7timer API</p>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
